@@ -1,12 +1,14 @@
 package com.gustavo.ordermanagement.entities;
 
 import java.io.Serializable;
-
+import java.util.List;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,9 @@ public class City implements Serializable{
 	
 	@ManyToOne
 	private State state;
+	
+	@OneToMany(mappedBy = "city")
+	private List<Address> addresses = new ArrayList<>();
 	
 	public City() {
 		
